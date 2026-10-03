@@ -1,0 +1,18 @@
+; ==============================================================
+; Practical 11 : add integers until 0 is read, then print the sum
+; Machine      : BasicComputer.cpu (Mano's Basic Computer)
+; SZA skips only one instruction, so two branches are needed:
+;   AC != 0 -> no skip -> BUN ADDIT runs
+;   AC  = 0 -> skip BUN ADDIT -> BUN DONE ends the loop
+; ==============================================================
+LOOP:   INP             ; AC <- next number
+        SZA             ; AC = 0 ? skip the next line
+        BUN ADDIT       ; non-zero: go and add it
+        BUN DONE        ; zero: finish
+ADDIT:  ADD SUM         ; AC <- AC + SUM
+        STA SUM         ; SUM <- AC
+        BUN LOOP        ; read the next number
+DONE:   LDA SUM         ; AC <- SUM
+        OUT             ; print the sum
+        HLT
+SUM:    .data 1 0       ; running total

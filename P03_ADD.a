@@ -1,0 +1,14 @@
+; ==============================================================
+; Practical 3 : ADD two numbers typed by the user
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+; Idea        : SUM = A + B
+; ==============================================================
+        INP             ; AC <- first number from the console
+        STA A           ; keep it in memory, the next INP overwrites AC
+        INP             ; AC <- second number
+        ADD A           ; AC <- AC + M[A]   (E <- carry out of bit 15)
+        STA SUM         ; store the result
+        OUT             ; print AC
+        HLT             ; stop the machine
+A:      .data 1 0       ; first number
+SUM:    .data 1 0       ; result

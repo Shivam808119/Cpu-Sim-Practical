@@ -1,0 +1,11 @@
+; ==============================================================
+; Practical 7 : register-reference instructions CLA, CMA, CME, HLT
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+; Step through in debug mode and note AC, E, PC, AR, IR (decimal).
+; ==============================================================
+        LDA NUM         ; AC <- 25, so CLA has something to clear
+        CLA             ; 7800 : AC <- 0
+        CMA             ; 7200 : AC <- AC'   (0000 -> FFFF)
+        CME             ; 7100 : E <- E'     (0 -> 1)
+        HLT             ; 7001 : halt
+NUM:    .data 1 25

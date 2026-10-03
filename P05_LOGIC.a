@@ -1,0 +1,62 @@
+; ==============================================================
+; Practical 5 : AND, OR, NOT, XOR, NOR, NAND on two numbers A and B
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+;
+; Only two logic instructions exist: AND (AC <- AC . M[x]) and CMA
+; (AC <- AC'). {AND, NOT} is functionally complete, so:
+;     OR   = (A' . B')'          (De Morgan)
+;     NAND = (A . B)'
+;     NOR  = (A + B)'
+;     XOR  = (A + B) . (A . B)'
+; Output order: AND, OR, NOT A, NOT B, XOR, NOR, NAND
+; ==============================================================
+        INP             ; AC <- A
+        STA A
+        INP             ; AC <- B
+        STA B
+; ----- AND = A . B ------------------------------------------
+        LDA A
+        AND B           ; AC <- A . B
+        STA RAND
+        OUT             ; output 1
+; ----- OR = (A' . B')' --------------------------------------
+        LDA B
+        CMA             ; AC <- B'
+        STA NB
+        LDA A
+        CMA             ; AC <- A'
+        STA NA
+        AND NB          ; AC <- A' . B'
+        CMA             ; AC <- A + B
+        STA ROR
+        OUT             ; output 2
+; ----- NOT A and NOT B --------------------------------------
+        LDA NA
+        OUT             ; output 3
+        LDA NB
+        OUT             ; output 4
+; ----- XOR = (A + B) . (A . B)' -----------------------------
+        LDA RAND
+        CMA             ; AC <- (A . B)'
+        STA RNAND
+        AND ROR         ; AC <- (A + B) . (A . B)'
+        STA RXOR
+        OUT             ; output 5
+; ----- NOR = (A + B)' ---------------------------------------
+        LDA ROR
+        CMA
+        STA RNOR
+        OUT             ; output 6
+; ----- NAND = (A . B)' --------------------------------------
+        LDA RNAND
+        OUT             ; output 7
+        HLT
+A:      .data 1 0
+B:      .data 1 0
+NA:     .data 1 0       ; A'
+NB:     .data 1 0       ; B'
+RAND:   .data 1 0       ; A AND B
+ROR:    .data 1 0       ; A OR B
+RXOR:   .data 1 0       ; A XOR B
+RNOR:   .data 1 0       ; A NOR B
+RNAND:  .data 1 0       ; A NAND B

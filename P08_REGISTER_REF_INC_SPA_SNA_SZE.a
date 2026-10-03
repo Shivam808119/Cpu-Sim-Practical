@@ -1,0 +1,19 @@
+; ==============================================================
+; Practical 8 : register-reference instructions INC, SPA, SNA, SZE
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+; A true skip adds 1 to PC, so the next instruction is not run.
+; Each HLT below is a trap: the last HLT is reached only if
+; every skip behaved as expected.
+; ==============================================================
+        LDA NUM         ; AC <- -2
+        INC             ; AC <- -1
+        SNA             ; AC negative -> skip next
+        HLT             ; (skipped)
+        INC             ; AC <- 0
+        SPA             ; sign bit 0 -> skip next
+        HLT             ; (skipped)
+        SZE             ; E = 0 -> skip next
+        HLT             ; (skipped)
+        INC             ; AC <- 1
+        HLT             ; final halt
+NUM:    .data 1 -2

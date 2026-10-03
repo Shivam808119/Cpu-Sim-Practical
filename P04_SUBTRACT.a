@@ -1,0 +1,17 @@
+; ==============================================================
+; Practical 4 : SUBTRACT two numbers typed by the user (A - B)
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+; Idea        : there is no SUB instruction, so
+;               A - B = A + (B' + 1)   (two's complement of B)
+; ==============================================================
+        INP             ; AC <- A (minuend)
+        STA A           ; save A
+        INP             ; AC <- B (subtrahend)
+        CMA             ; AC <- B'      (one's complement)
+        INC             ; AC <- B' + 1  (= -B)
+        ADD A           ; AC <- -B + A
+        STA DIFF        ; store the difference
+        OUT             ; print AC
+        HLT
+A:      .data 1 0       ; minuend
+DIFF:   .data 1 0       ; result

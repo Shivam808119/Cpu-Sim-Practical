@@ -1,0 +1,13 @@
+; ==============================================================
+; Practical 9 : register-reference instructions CIR, CIL
+; Machine     : BasicComputer.cpu (Mano's Basic Computer)
+; CIR rotates E and AC right (E -> AC15, AC0 -> E)
+; CIL rotates E and AC left  (AC15 -> E, E -> AC0)
+; ==============================================================
+        LDA NUM         ; AC = 0000 0000 0000 1001 (9), E = 0
+        CIR             ; AC = 0000 0000 0000 0100 (4), E = 1
+        CIR             ; AC = 1000 0000 0000 0010,     E = 0
+        CIL             ; AC = 0000 0000 0000 0100 (4), E = 1
+        CIL             ; AC = 0000 0000 0000 1001 (9), E = 0
+        HLT
+NUM:    .data 1 9
