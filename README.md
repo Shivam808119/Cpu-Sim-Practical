@@ -397,8 +397,8 @@ Open `programs/P03_ADD.a`, press **Ctrl+2** to assemble and load, then **Ctrl+D*
 
 <img width="1918" height="1133" alt="image" src="https://github.com/user-attachments/assets/b9654842-9a72-4215-bd4e-c90b7da124a6" />
 
+<img width="1917" height="1132" alt="image" src="https://github.com/user-attachments/assets/e2802997-6f4d-4d1c-83b3-d2c249c70d52" />
 
-<img width="1918" height="1131" alt="image" src="https://github.com/user-attachments/assets/581d6ed1-4216-4b70-b68d-806d56b42840" />
 
 
 ## Observations
@@ -489,15 +489,12 @@ Memory-reference instructions are the opcode digit followed by the 12-bit addres
 4. Press **Ctrl+R**. When the console turns yellow type `25` and press Enter, then type `17` and press Enter.
 5. The console prints `Output: 42` and the halt message.
 
-![Fig 3.1 – Program open in the text editor](screenshots/p03_program_loaded.png)
+<img width="1918" height="1133" alt="image" src="https://github.com/user-attachments/assets/eb49cab6-f2ab-41c1-9e6b-ed9ab3574467" />
 
-![Fig 3.2 – After Ctrl+2: machine code in RAM (Data = Hex)](screenshots/p03_after_assemble.png)
+<img width="1918" height="1127" alt="image" src="https://github.com/user-attachments/assets/8e9519d7-b5b1-491a-a913-35fde8a1d255" />
 
-![Fig 3.3 – After Ctrl+R: yellow console waiting for the first number](screenshots/p03_waiting_first_input.png)
+<img width="1918" height="1133" alt="image" src="https://github.com/user-attachments/assets/0114e8b8-7460-44c5-9005-c4f8d0d54a0f" />
 
-![Fig 3.4 – After the first number: waiting for the second](screenshots/p03_after_first_input.png)
-
-![Fig 3.5 – Final output 42 and "EXECUTION HALTED NORMALLY"](screenshots/p03_output.png)
 
 ## Observations
 
@@ -595,11 +592,14 @@ DIFF:   .data 1 0       ; result
 3. Enter the minuend `18` (Enter), then the subtrahend `50` (Enter).
 4. The console prints `Output: -32`.
 
-![Fig 4.1 – Program open in the text editor](screenshots/p04_program_loaded.png)
+<img width="1918" height="1042" alt="image" src="https://github.com/user-attachments/assets/10236904-8a02-426d-a78a-4c5c99459dd4" />
 
-![Fig 4.2 – After Ctrl+2: machine code in RAM](screenshots/p04_after_assemble.png)
 
-![Fig 4.3 – Console output -32 and normal halt](screenshots/p04_output.png)
+<img width="1918" height="1122" alt="image" src="https://github.com/user-attachments/assets/14c54066-c5e0-4ca1-8bbe-d61d2549af20" />
+
+
+<img width="1918" height="1132" alt="image" src="https://github.com/user-attachments/assets/161f97b3-6a5f-4c4f-9aa5-33ff05294c9b" />
+
 
 ## Observations
 
@@ -775,11 +775,14 @@ RNAND:  .data 1 0       ; A NAND B
 2. Press **Ctrl+2**, then **Ctrl+R**; enter `12` (Enter) and `10` (Enter).
 3. Seven outputs are printed in the order AND, OR, NOT A, NOT B, XOR, NOR, NAND. Scroll the console up to see them all.
 
-![Fig 5.1 – Program open in the text editor](screenshots/p05_program_loaded.png)
+<img width="1918" height="1126" alt="image" src="https://github.com/user-attachments/assets/d2844e24-3727-4e1b-838d-f7674eefea04" />
 
-![Fig 5.2 – After Ctrl+2: machine code in RAM](screenshots/p05_after_assemble.png)
 
-![Fig 5.3 – Console showing all seven outputs (scroll to the top)](screenshots/p05_output.png)
+<img width="1918" height="1135" alt="image" src="https://github.com/user-attachments/assets/f4a3011c-23fe-4e8f-9a81-18d17c3bf74e" />
+
+
+<img width="1918" height="1127" alt="image" src="https://github.com/user-attachments/assets/0e9913a2-5218-4bee-8bbf-da5f44e294d0" />
+
 
 ## Observations
 
@@ -894,15 +897,20 @@ PROD:   .data 1 0       ; product
 4. Click **Step by Instr** once per instruction (16 times) and record AC, DR, E, PC, AR and IR after each step.
 5. When `HLT` runs the console shows "EXECUTION HALTED NORMALLY". **Start Over** repeats the trace.
 
-![Fig 6.1 – Debug mode before the first step (all registers 0)](screenshots/p06_before_stepping.png)
+<img width="1918" height="1128" alt="image" src="https://github.com/user-attachments/assets/bf2250a4-dcae-4f58-b033-72c537fe891e" />
 
-![Fig 6.2 – After step 4, ISZ CTR: CTR = -2 (DR = 65534), not zero, so no skip (PC = 4)](screenshots/p06_after_step4.png)
 
-![Fig 6.3 – After step 5, BUN LOOP: PC = AR = 0](screenshots/p06_after_step5.png)
+<img width="1918" height="1125" alt="image" src="https://github.com/user-attachments/assets/906020f1-91ed-4aff-a0fc-5695c7ebff5c" />
 
-![Fig 6.4 – After step 14, third ISZ CTR: DR = 0, PC incremented again (PC = 5)](screenshots/p06_after_step14.png)
 
-![Fig 6.5 – After step 16, HLT: AC = 15 and PROD (address 9) = 000F](screenshots/p06_after_step16.png)
+<img width="1918" height="1103" alt="image" src="https://github.com/user-attachments/assets/1e538ccb-fb8c-494a-aba1-58fa10e9cb7e" />
+
+
+<img width="1918" height="1127" alt="image" src="https://github.com/user-attachments/assets/76893c69-3b0d-40e0-82c6-8fd05955512c" />
+
+
+<img width="1918" height="1127" alt="image" src="https://github.com/user-attachments/assets/4bf43b7b-6cf7-467d-b9a5-aacfa2fef56e" />
+
 
 ## Observations
 
@@ -1004,17 +1012,22 @@ NUM:    .data 1 25
 2. Set the Registers *Data* box to **Unsigned Dec** and the RAM *Data* box to **Hex**.
 3. Click **Step by Instr** five times, recording AC, E, PC, AR and IR after each click.
 
-![Fig 7.1 – After assembling and loading (debug mode)](screenshots/p07_loaded.png)
+<img width="1918" height="1132" alt="image" src="https://github.com/user-attachments/assets/b300e905-551d-46f1-92bc-17d75dcab80e" />
 
-![Fig 7.2 – After step 1, LDA NUM: AC = 25](screenshots/p07_after_step1.png)
 
-![Fig 7.3 – After step 2, CLA: AC = 0, AR = 2048](screenshots/p07_after_step2.png)
+<img width="1918" height="1112" alt="image" src="https://github.com/user-attachments/assets/cb33eb29-da34-450a-8b12-d1bc942d6c3f" />
 
-![Fig 7.4 – After step 3, CMA: AC = 65535, AR = 512](screenshots/p07_after_step3.png)
 
-![Fig 7.5 – After step 4, CME: E = 1, AR = 256](screenshots/p07_after_step4.png)
+<img width="1918" height="1122" alt="image" src="https://github.com/user-attachments/assets/651af486-3ff8-4b90-8767-9561085409b9" />
 
-![Fig 7.6 – After step 5, HLT: S = 1, execution halted](screenshots/p07_after_step5.png)
+
+<img width="1918" height="1125" alt="image" src="https://github.com/user-attachments/assets/1ddafe7e-53e1-4d3c-8c71-76e0842492c1" />
+
+<img width="1918" height="1130" alt="image" src="https://github.com/user-attachments/assets/42c3ab6d-ca9e-43c8-92bb-4a757603324f" />
+
+
+<img width="1918" height="1122" alt="image" src="https://github.com/user-attachments/assets/5a067433-5481-47e7-ae87-c70beec22d45" />
+
 
 ## Observations
 
@@ -1124,23 +1137,31 @@ NUM:    .data 1 -2
 2. Set the Registers *Data* box to **Unsigned Dec** and the RAM *Data* box to **Hex**.
 3. Click **Step by Instr** eight times, recording AC, E, PC, AR and IR after each click.
 
-![Fig 8.1 – After assembling and loading (debug mode)](screenshots/p08_loaded.png)
+<img width="1918" height="1140" alt="image" src="https://github.com/user-attachments/assets/745619c9-196c-4820-a558-e4b75f55ead3" />
 
-![Fig 8.2 – After step 1, LDA NUM: AC = 65534 (-2)](screenshots/p08_after_step1.png)
 
-![Fig 8.3 – After step 2, INC: AC = 65535 (-1)](screenshots/p08_after_step2.png)
+<img width="1918" height="1113" alt="image" src="https://github.com/user-attachments/assets/81b772b6-2bb9-48fa-b92a-e82db2b8ecc0" />
 
-![Fig 8.4 – After step 3, SNA: AC negative, PC jumps from 2 to 4](screenshots/p08_after_step3.png)
+<img width="1918" height="1122" alt="image" src="https://github.com/user-attachments/assets/d9b77c81-ca39-45fd-af24-c99a12fae9d5" />
 
-![Fig 8.5 – After step 4, INC: AC = 0](screenshots/p08_after_step4.png)
 
-![Fig 8.6 – After step 5, SPA: sign bit 0, PC jumps from 5 to 7](screenshots/p08_after_step5.png)
+<img width="1918" height="1123" alt="image" src="https://github.com/user-attachments/assets/f9115b12-18b8-4c0e-818a-2e227933624f" />
 
-![Fig 8.7 – After step 6, SZE: E = 0, PC jumps from 7 to 9](screenshots/p08_after_step6.png)
 
-![Fig 8.8 – After step 7, INC: AC = 1](screenshots/p08_after_step7.png)
+<img width="1918" height="1102" alt="image" src="https://github.com/user-attachments/assets/504a25e2-9b7c-449d-8a55-4c597c85a647" />
 
-![Fig 8.9 – After step 8, HLT: halted with PC = 11](screenshots/p08_after_step8.png)
+
+<img width="1918" height="1115" alt="image" src="https://github.com/user-attachments/assets/779522c9-ba01-43c0-8200-0ad504da33fe" />
+
+
+<img width="1917" height="1121" alt="image" src="https://github.com/user-attachments/assets/705c3c6a-454b-4756-a797-50ea65877f8a" />
+
+
+<img width="1918" height="1117" alt="image" src="https://github.com/user-attachments/assets/30414d66-b847-4e51-90ee-da28cf0295db" />
+
+
+<img width="1918" height="1120" alt="image" src="https://github.com/user-attachments/assets/47990b4a-e1c8-4744-bff0-26c7a19bc2cb" />
+
 
 ## Observations
 
@@ -1254,19 +1275,26 @@ NUM:    .data 1 9
 2. Set the Registers *Data* box to **Unsigned Dec** and the RAM *Data* box to **Hex**.
 3. Click **Step by Instr** six times, recording AC, E, PC, AR and IR after each click.
 
-![Fig 9.1 – After assembling and loading (debug mode)](screenshots/p09_loaded.png)
+<img width="1918" height="1113" alt="image" src="https://github.com/user-attachments/assets/520c2420-6d21-4939-8d87-264996d5e61c" />
 
-![Fig 9.2 – After step 1, LDA NUM: AC = 9, E = 0](screenshots/p09_after_step1.png)
 
-![Fig 9.3 – After step 2, CIR: AC = 4, E = 1](screenshots/p09_after_step2.png)
+<img width="1918" height="1121" alt="image" src="https://github.com/user-attachments/assets/0758d2c2-b20b-477d-8413-680ec8e4347b" />
 
-![Fig 9.4 – After step 3, CIR: AC = 32770, E = 0](screenshots/p09_after_step3.png)
 
-![Fig 9.5 – After step 4, CIL: AC = 4, E = 1](screenshots/p09_after_step4.png)
+<img width="1918" height="1117" alt="image" src="https://github.com/user-attachments/assets/405dfa37-94a8-4414-aaa0-63341e76de23" />
 
-![Fig 9.6 – After step 5, CIL: AC = 9, E = 0](screenshots/p09_after_step5.png)
 
-![Fig 9.7 – After step 6, HLT: halted](screenshots/p09_after_step6.png)
+<img width="1918" height="1113" alt="image" src="https://github.com/user-attachments/assets/2604eed6-7359-4cbd-97f1-bd4696769813" />
+
+
+<img width="1917" height="1122" alt="image" src="https://github.com/user-attachments/assets/381b95a4-3e67-409d-a124-c40e682e941b" />
+
+
+<img width="1918" height="1107" alt="image" src="https://github.com/user-attachments/assets/4a6873e0-2e5b-411e-8af0-8ac38516ff56" />
+
+
+<img width="1918" height="1108" alt="image" src="https://github.com/user-attachments/assets/973dbc4e-6059-4066-9dd8-e0444e0f6fa5" />
+
 
 ## Observations
 
@@ -1374,11 +1402,12 @@ SUM:    .data 1 0       ; running total
 3. Enter `4`, `10`, `0`, `6` and finally `-3`, pressing Enter after each.
 4. The console prints `Output: 20`.
 
-![Fig 10.1 – Program open in the text editor](screenshots/p10_program_loaded.png)
+<img width="1918" height="1127" alt="image" src="https://github.com/user-attachments/assets/03e9d638-90de-4684-bb34-8f1e7394fddc" />
 
-![Fig 10.2 – After Ctrl+2: machine code in RAM](screenshots/p10_after_assemble.png)
 
-![Fig 10.3 – Console after entering 4, 10, 0, 6, -3: Output 20](screenshots/p10_output.png)
+
+<img width="1918" height="1137" alt="image" src="https://github.com/user-attachments/assets/1f8e5b04-7ba3-420f-a7d8-30cdfa74ab9f" />
+
 
 ## Observations
 
@@ -1466,11 +1495,11 @@ SUM:    .data 1 0       ; running total
 3. Enter `8`, `12`, `-5` and `0`, pressing Enter after each.
 4. The console prints `Output: 15`.
 
-![Fig 11.1 – Program open in the text editor](screenshots/p11_program_loaded.png)
+<img width="1918" height="1133" alt="image" src="https://github.com/user-attachments/assets/8140ced8-e60f-4b64-84c9-b7c53f20e98c" />
 
-![Fig 11.2 – After Ctrl+2: machine code in RAM](screenshots/p11_after_assemble.png)
 
-![Fig 11.3 – Console after entering 8, 12, -5, 0: Output 15](screenshots/p11_output.png)
+<img width="1918" height="1131" alt="image" src="https://github.com/user-attachments/assets/3bb975d4-f37e-4e7c-9227-a4266c3c9101" />
+
 
 ## Observations
 
