@@ -1,11 +1,11 @@
-# Computer System Architecture – CPU Sim Practicals
-
-**Simulating Mano's Basic Computer in CPU Sim 4.0.11**
+<h2 align="center"> # Computer System Architecture – CPU Sim Practicals </h2>
+<br>
+<h3> **Simulating Mano's Basic Computer in CPU Sim 4.0.11** </h3>
 
 | | |
 | :--- | :--- |
-| Name | |
-| Roll No. | |
+| Name | Shivam Pal |
+| Roll No. | 26570055 |
 | Course / Semester | Computer System Architecture (DSC02 / DSC03 / GE2c) |
 | College | Ramanujan College, University of Delhi |
 | Tool | CPU Sim 4.0.11 (needs Java 8 **with JavaFX**) |
@@ -26,19 +26,8 @@
 | 10 | [Sum of integers until a negative number](#practical-10-sum-of-integers-until-a-negative-number-is-read) | `programs/P10_SUM_UNTIL_NEGATIVE.a` |
 | 11 | [Sum of integers until zero](#practical-11-sum-of-integers-until-zero-is-read) | `programs/P11_SUM_UNTIL_ZERO.a` |
 
-## How this repository is organised
 
-```
-BasicComputer.cpu        machine built in Practicals 1 and 2 (saved from CPU Sim)
-programs/                assembly programs for Practicals 3 to 11
-screenshots/             screenshots used in this README (see SCREENSHOTS.md)
-tools/                   Python model used to double-check every result
-```
-
-**To run any program:** start CPU Sim → *File → Open machine…* → `BasicComputer.cpu` → *File → Open text…* → the `.a` file → press **Ctrl+2** (assemble and load) → **Ctrl+R** (run). When the console turns yellow it is waiting at an `INP`: type a number and press Enter. For the register-trace practicals press **Ctrl+D** (debug mode) instead of Ctrl+R, set the Registers *Data* box to **Unsigned Dec** and click **Step by Instr**.
-
-**How the results were checked:** `tools/verify.py` models the machine (same fetch sequence and execute sequences as the tables below) and replays every program. All memory maps, register traces and sample runs printed in this README come from that model, and the logic and arithmetic programs were also compared with ordinary Python arithmetic on random inputs. Run `python3 tools/verify.py` to repeat the check.
-
+<br>
 ---
 
 # Practical 1: Create a Machine (Basic Computer Architecture)
@@ -82,7 +71,10 @@ How this CPU Sim machine differs from the textbook design: only direct addressin
 
 *File → New machine* (Ctrl+Shift+N) creates a machine with no hardware.
 
-![Fig 1.1 – File menu: New machine](screenshots/p01_new_machine.png)
+<img width="1918" height="1138" alt="image" src="https://github.com/user-attachments/assets/014d4f0d-40d5-45d5-8c72-bdfbad10e9e1" />
+
+
+<br>
 
 ### Step 2 – Create the registers
 
@@ -99,7 +91,8 @@ Open *Modify → Hardware Modules* (Ctrl+K), keep *Type of Module* = **Register*
 | TMP | 1 | Scratch bit used only inside CIR and CIL |
 | S | 1 | Start/stop flip-flop, set by HLT |
 
-![Fig 1.2 – Hardware Modules: the eight registers](screenshots/p01_registers.png)
+<img width="650" height="677" alt="image" src="https://github.com/user-attachments/assets/fd9c45a3-ecaf-4620-8310-f8e67e6d98c7" />
+<br>
 
 ### Step 3 – Create the condition bits and the RAM
 
@@ -110,15 +103,19 @@ Switch *Type of Module* to **ConditionBit** and add two bits. Tick **halt** only
 | carry-E | E | 0 | no |
 | halt-S | S | 0 | yes |
 
-![Fig 1.3 – Condition bits carry-E and halt-S](screenshots/p01_condition_bits.png)
+<img width="652" height="672" alt="image" src="https://github.com/user-attachments/assets/122664bb-6bc7-424b-a758-adc71f131d7e" />
+
 
 Switch to **RAM** and add one module: name `M`, length `4096`, cell size `16`. A 16-bit cell makes the memory word-addressed, like the 4096 × 16 memory of the textbook design. Click **OK**.
 
-![Fig 1.4 – RAM M: 4096 cells of 16 bits](screenshots/p01_ram.png)
+<img width="652" height="681" alt="image" src="https://github.com/user-attachments/assets/aa5e600c-eadc-4c90-a3af-ed29ae994345" />
+
+<br>
 
 ### Step 4 – Create the microinstructions
 
 Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of Microinstruction**, click **New** per row and fill the columns as below. The names are only labels, but the execute sequences in Step 6 must use the same names.
+<br>
 
 **TransferRtoR** – copy bits from one register to another
 
@@ -136,7 +133,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 
 > `IR(0-11)->AR` must keep **srcStartBit = 4** and **destStartBit = 0**. Starting at bit 0 would copy the opcode bits into AR and every memory-reference instruction would address the wrong word.
 
-![Fig 1.5 – TransferRtoR microinstructions](screenshots/p01_micro_transferrtor.png)
+<img width="746" height="676" alt="image" src="https://github.com/user-attachments/assets/f164e255-00cb-42f9-b8db-0a8965284135" />
+
+<br>
 
 **MemoryAccess** – read a memory word into a register, or write a register to memory
 
@@ -147,7 +146,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | AC->M[AR] | write | M | AC | AR |
 | DR->M[AR] | write | M | DR | AR |
 
-![Fig 1.6 – MemoryAccess microinstructions](screenshots/p01_micro_memoryaccess.png)
+<img width="748" height="668" alt="image" src="https://github.com/user-attachments/assets/ce5ee0db-62be-4c22-8ef5-7afd8ad32b7c" />
+
+<br>
 
 **Increment** – add a constant to a register
 
@@ -157,7 +158,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | DR+1->DR | DR | 1 |
 | AC+1->AC | AC | 1 |
 
-![Fig 1.7 – Increment microinstructions](screenshots/p01_micro_increment.png)
+<img width="776" height="683" alt="image" src="https://github.com/user-attachments/assets/07eb177d-c19c-4771-b6db-0545baa18fa4" />
+
+<br>
 
 **Arithmetic** – add two registers; the carry goes to E
 
@@ -165,7 +168,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | AC+DR->AC,E | ADD | AC | DR | AC | carry-E |
 
-![Fig 1.8 – Arithmetic microinstruction](screenshots/p01_micro_arithmetic.png)
+<img width="777" height="687" alt="image" src="https://github.com/user-attachments/assets/cb288279-0232-46d7-8506-bc2a8de3545b" />
+
+<br>
 
 **Logical** – bitwise AND and NOT
 
@@ -175,7 +180,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | AC'->AC | NOT | AC | AC | AC |
 | E'->E | NOT | E | E | E |
 
-![Fig 1.9 – Logical microinstructions](screenshots/p01_micro_logical.png)
+<img width="741" height="667" alt="image" src="https://github.com/user-attachments/assets/da1d111a-fd57-4e8f-a833-13f580ccaa91" />
+
+<br>
 
 **Shift** – move AC by one bit (used inside CIR and CIL)
 
@@ -184,7 +191,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | shr AC | AC | AC | logical | right | 1 |
 | shl AC | AC | AC | logical | left | 1 |
 
-![Fig 1.10 – Shift microinstructions](screenshots/p01_micro_shift.png)
+<img width="772" height="683" alt="image" src="https://github.com/user-attachments/assets/28c1ad24-e36f-4a8a-8a7b-bba82b937dfc" />
+
+<br>
 
 **Set** – load a constant into bits of a register (clears AC or E)
 
@@ -193,7 +202,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | 0->AC | AC | 0 | 16 | 0 |
 | 0->E | E | 0 | 1 | 0 |
 
-![Fig 1.11 – Set microinstructions](screenshots/p01_micro_set.png)
+<img width="755" height="677" alt="image" src="https://github.com/user-attachments/assets/24d3e76a-b816-4372-ab00-4e5a52e58801" />
+
+<br>
 
 **Test** – compare bits of a register with a value and omit the next *n* microinstructions when the comparison is true. This is how the skip instructions are built.
 
@@ -207,7 +218,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 
 (For the `AC(15)` tests the *start* is 0 because Mano's AC(15), the sign bit, is CPU Sim's bit 0.)
 
-![Fig 1.12 – Test microinstructions](screenshots/p01_micro_test.png)
+<img width="745" height="670" alt="image" src="https://github.com/user-attachments/assets/824af80e-9f35-4421-be3e-cd37649e1e8b" />
+
+<br>
 
 **Decode** – pick the machine instruction whose opcode matches IR
 
@@ -215,7 +228,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | :--- | :--- |
 | decode-IR | IR |
 
-![Fig 1.13 – Decode microinstruction](screenshots/p01_micro_decode.png)
+<img width="740" height="703" alt="image" src="https://github.com/user-attachments/assets/a92b37bb-882f-48e1-bbcd-6d6514aafc4c" />
+
+<br>
 
 **SetCondBit** – set the halt bit
 
@@ -223,7 +238,9 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | :--- | :--- | :--- |
 | 1->S(halt) | halt-S | 1 |
 
-![Fig 1.14 – SetCondBit microinstruction](screenshots/p01_micro_setcondbit.png)
+<img width="731" height="690" alt="image" src="https://github.com/user-attachments/assets/526df63a-8b63-4845-9db3-f585cc657440" />
+
+<br>
 
 **IO** – read an integer from, or print an integer to, the console
 
@@ -232,9 +249,12 @@ Open *Modify → Microinstructions* (Ctrl+Shift+M). Pick each type in **Type of 
 | input-int->AC | input | integer | AC | [Console] |
 | output-AC->int | output | integer | AC | [Console] |
 
-![Fig 1.15 – IO microinstructions](screenshots/p01_micro_io.png)
+<img width="736" height="682" alt="image" src="https://github.com/user-attachments/assets/ee360372-e630-4ac5-a9f0-cac4d9e45773" />
+
 
 That makes **33 microinstructions**. Click **OK**. An `End` microinstruction exists in every machine automatically; it finishes an execute sequence and returns control to the fetch sequence.
+
+<br>
 
 ### Step 5 – Create the instruction fields
 
@@ -246,9 +266,12 @@ That makes **33 microinstructions**. Click **OK**. An `End` microinstruction exi
 | addr | 12 | address part of memory-reference instructions |
 | opcode | 16 | the complete 16-bit code of register-reference and I/O instructions |
 
-![Fig 1.16 – Edit Fields dialog](screenshots/p01_fields.png)
+<img width="522" height="607" alt="image" src="https://github.com/user-attachments/assets/444964ec-8041-477f-8641-523f9f8ddec7" />
+
 
 > **Why two opcode lengths work.** The decoder compares the leftmost 1 bit of IR, then 2 bits, then 3 and so on, and picks the first instruction whose opcode matches. No instruction has the 4-bit opcode 7 or F, so an IR such as `7800` keeps being examined until all 16 bits match `CLA`.
+
+<br>
 
 ### Step 6 – Create the 20 machine instructions
 
@@ -317,6 +340,8 @@ Each instruction or data value is one 16-bit word, so one address holds one word
 Microprogrammed: every instruction is a stored sequence of microinstructions.
 
 ---
+
+<br>
 
 # Practical 2: Create the Fetch Routine of the Instruction Cycle
 
