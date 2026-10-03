@@ -302,13 +302,19 @@ For each instruction click **new**, type the name, then on the **Format** tab en
 
 Reading the skip instructions: the test microinstruction omits `PC+1->PC` when the *opposite* condition holds, so PC is incremented (the next instruction is skipped) only when the instruction's own condition is true.
 
-![Fig 1.17 – Machine instructions: ADD format (op, addr)](screenshots/p01_instr_add_format.png)
+<img width="882" height="675" alt="image" src="https://github.com/user-attachments/assets/43d01af0-4c58-4470-a644-8b6e35d96131" />
 
-![Fig 1.18 – Machine instructions: CLA format (opcode 7800)](screenshots/p01_instr_cla_format.png)
+<br>
 
-![Fig 1.19 – Execute sequence of ADD](screenshots/p01_instr_add_execute.png)
+<img width="862" height="592" alt="image" src="https://github.com/user-attachments/assets/51cc55bd-9db6-4e29-b399-518acf218854" />
 
-![Fig 1.20 – Execute sequence of ISZ](screenshots/p01_instr_isz_execute.png)
+<br>
+
+<img width="863" height="608" alt="image" src="https://github.com/user-attachments/assets/61ec07c8-3a4d-4358-a941-86e17b442239" />
+
+
+<img width="857" height="625" alt="image" src="https://github.com/user-attachments/assets/7c1eb682-fe2b-480c-ab11-acde9eeb2a94" />
+
 
 ### Step 7 – Fetch sequence, program counter and saving
 
@@ -378,17 +384,22 @@ After T2 the control unit knows which instruction is in IR and AR already holds 
 5. Drag `IR(0-11)->AR` (transferRtoR).
 6. Drag `decode-IR` (decode) to the end, click **OK**, and save the machine (Ctrl+B).
 
-![Fig 2.1 – Fetch sequence dialog with the five microinstructions](screenshots/p02_fetch_sequence.png)
+<img width="630" height="593" alt="image" src="https://github.com/user-attachments/assets/f951df6c-98a7-4d81-90a8-338ffea88da6" />
+
 
 ## Testing the routine
 
 Open `programs/P03_ADD.a`, press **Ctrl+2** to assemble and load, then **Ctrl+D** for debug mode. Set the Registers *Data* box to **Unsigned Dec**. Click **Step by Micro** five times and watch which register each microinstruction changes (changed registers are outlined in green).
 
-![Fig 2.2 – Debug mode before the first micro-step (all registers 0)](screenshots/p02_before_stepping.png)
+<img width="1918" height="1132" alt="image" src="https://github.com/user-attachments/assets/3f5e8802-82ce-494f-bee4-68bb175ecbc3" />
 
-![Fig 2.3 – After micro-step 2: IR = 63488 (F800 hex)](screenshots/p02_after_step2.png)
+<br>
 
-![Fig 2.4 – After micro-step 5: decode-IR selects INP](screenshots/p02_after_step5.png)
+<img width="1918" height="1133" alt="image" src="https://github.com/user-attachments/assets/b9654842-9a72-4215-bd4e-c90b7da124a6" />
+
+
+<img width="1918" height="1131" alt="image" src="https://github.com/user-attachments/assets/581d6ed1-4216-4b70-b68d-806d56b42840" />
+
 
 ## Observations
 
